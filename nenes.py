@@ -4,6 +4,7 @@ class Nene(object):
         self.edad = edad
         self.juguetes = juguetes
         self.esta_registrado = False
+        self.karma = 0
     
     def mostrar_lista(self):
         if self.esta_registrado:
@@ -13,7 +14,7 @@ class Nene(object):
     
     def _listar_juguetes(self):
         for indice, juguete in enumerate(self.juguetes):
-            if juguete['mostrar']:
+            if juguete['mostrar'] and self.karma >= juguete['karma']:
                 print(f'{indice} .- {juguete}')
     
    

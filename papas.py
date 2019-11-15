@@ -10,8 +10,17 @@ class Papa(object):
         nene.esta_registrado = True
     
     def restringir_lista_por_edad(self, nene, edad):
-        if nene in self.nenes_a_cargo:
+        if self._nene_esta_a_mi_cargo(nene):
             for juguete in nene.juguetes:
                 if juguete['edad_recomendada'] > edad:
                     juguete['mostrar'] = False
+    
+    def aumentar_karma(self, nene, numero=1):
+        nene.karma += numero
+    
+    def disminuir_karma(self, nene, numero=1):
+        nene.karma -= numero
+
+    def _nene_esta_a_mi_cargo(self, nene):
+        return nene in self.nenes_a_cargo
     
