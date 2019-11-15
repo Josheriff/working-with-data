@@ -22,4 +22,10 @@ si queremos probar a cambiar alguna variable, solo tendremos que cambiarla en el
     - pueden eliminar elementos de la lista de regalos.
     - Los papas, pueden validar esas opciones, para que papa noel las vea.
 
+### condiciones
+
+NO NOS PREOCUPAMOS DE LOGUEAR A NADIE
+
+En una primera fase, se hará sin MVC y Sin delivery Mechanism, sin base datos, sin persistencia real (persistencia la metemos en el archivo.py famoso de fake data).
+
     
