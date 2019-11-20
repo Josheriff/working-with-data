@@ -1,10 +1,10 @@
 class Nene(object):
     def __init__(self, nombre, edad, juguetes):
-        self.nombre = nombre
-        self.edad = edad
-        self.juguetes = juguetes
-        self.esta_registrado = False
-        self.karma = 0
+        self.nombre = nombre             # string
+        self.edad = edad                 # int
+        self.juguetes = juguetes         # lista / array, de diccionarios
+        self.esta_registrado = False     # boolean
+        self.karma = 0                   # int
     
     def mostrar_lista(self):
         if self.esta_registrado:
