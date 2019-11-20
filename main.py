@@ -8,7 +8,7 @@ nene_data = {'nombre':nombre_nene,
              'edad' :edad_nene,
              'juguetes': juguetes}
 nene = Nene(nene_data, conn)
-nene.create()
+nene.crear()
 papa = Papa(nombre_adulto, conn)
 papa.registrar_nene(nene)
 
@@ -21,5 +21,5 @@ papa.registrar_nene(nene)
 # nene.mostrar_lista()
 # papa.aumentar_karma(nene,8)
 # print('-------------------------')
-# nene.mostrar_lista()
+nene.mostrar_lista()
 

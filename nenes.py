@@ -15,9 +15,18 @@ class Nene(object):
             print('EL NIÑO NO ESTA REGISTRADO EN EL SISTEMA')
     
     def _listar_juguetes(self):
-        for indice, juguete in enumerate(self.juguetes):
-            if juguete['mostrar'] and self.karma >= juguete['karma']:
-                print(f'{indice} .- {juguete}')
+        juguetes_en_venta = list()
+        sql = f''' SELECT * FROM juguetes
+                   WHERE edad_recomendada <= {self.edad}
+                   AND popularidad <= {self.karma}
+                   ;'''
+        with self.conn:
+            cur = self.conn.cursor()
+            juguetes_en_venta = cur.execute(sql).fetchall()
+            print(juguetes_en_venta)
+
+        for indice, juguete in enumerate(juguetes_en_venta):
+            print(f'{indice} .- {juguete[1]}')
     
     def crear(self):
         with self.conn:
@@ -37,7 +46,6 @@ class Nene(object):
                     SET nombre = "{self.nombre}", edad={self.edad}, esta_registrado={esta_registrado}, karma={self.karma}
                     WHERE nene_id={self.nene_id} ;'''
             
-            print(sql)
             cur = self.conn.cursor()
             cur.execute(sql)
             return
