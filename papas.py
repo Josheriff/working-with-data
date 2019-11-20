@@ -1,10 +1,13 @@
 from nenes import Nene
 
 class Papa(object):
-    def __init__(self, nombre, conn):
+    def __init__(self, nombre, password, conn, papa_id=0):
+        self.papa_id = papa_id
         self.nombre = nombre
         self.nenes_a_cargo = []
+        self.password = password
         self.conn = conn
+
     
     def registrar_nene(self, nene):
         self.nenes_a_cargo.append(nene)
@@ -28,9 +31,13 @@ class Papa(object):
     
     def crear(self, nene_id):
         with self.conn:    
-            sql = f''' INSERT INTO papas(nombre,nene_a_su_cargo)
-                    VALUES("{self.nombre}",{nene_id}) '''
+            sql = f''' INSERT INTO papas(nombre,nene_a_su_cargo, password)
+                    VALUES("{self.nombre}",{nene_id}, "{self.password}") '''
             cur = self.conn.cursor()
             cur.execute(sql)
             return cur.lastrowid
+    
+    def check_password(self, password_introducida):
+        if password_introducida != self.password:
+            raise PasswordNotValid
     
