@@ -7,3 +7,4 @@ segundo_juguete = {'nombre': 'EscalesTrix', 'precio':60, 'edad_recomendada': 9, 
 tercer_juguete = {'nombre': 'Patines', 'precio':60, 'edad_recomendada': 12, 'popularidad':5, 'karma': 7, 'mostrar': True} 
 
 juguetes = [primer_juguete, segundo_juguete, tercer_juguete]
+
