@@ -26,7 +26,7 @@ TABLA_DESEOS_NENE = """CREATE TABLE deseos_nene (
 
 TABLA_PAPAS = """CREATE TABLE papas (
     papa_id          INTEGER PRIMARY KEY,
-    nombre_papa      varchar NOT NULL,
+    nombre      varchar NOT NULL,
     nene_a_su_cargo  INTEGER NOT NULL,
     FOREIGN KEY (nene_a_su_cargo)
       REFERENCES nenes (nene_id)
